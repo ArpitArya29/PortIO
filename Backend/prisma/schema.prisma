@@ -17,6 +17,15 @@ enum Role {
   ADMIN
 }
 
+model Address {
+  id String @id @default(uuid())
+  city String?
+  state String
+  country String
+
+  user User?
+}
+
 model User {
   id       String  @id @default(uuid())
   name     String
@@ -28,6 +37,10 @@ model User {
   linkedIn_url String?
   github_url   String?
   phone_number String?
+
+  addressId String? @unique
+
+  address Address? @relation(fields: [addressId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
