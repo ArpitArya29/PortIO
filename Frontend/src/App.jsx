@@ -17,6 +17,7 @@ import PortfolioPage from "./Pages/PortfolioPage";
 import UserPortfolioPage from "./Pages/UserPortfolioPage";
 import ProfilePage from "./Pages/ProfilePage";
 import RocketLoader from "./Components/Charts/Loaders/RocketLoader";
+import LandingPage from "./Components/LandingPage";
 
 const App = () => {
   const { authUser, isCheckingAuth, checkAuth, logout } = useAuthStore();
@@ -41,7 +42,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            authUser ? <Navigate to={"/app"} /> : <Navigate to={"/login"} />
+            authUser ? <Navigate to={"/app"} /> : <LandingPage />
           }
         />
 
